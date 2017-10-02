@@ -35,7 +35,7 @@ class Question extends Component {
         onClick={event => this.handleClick()}
         style={{top: this.state.top, left: this.state.left}}>
         <div
-          className={`question ${this.state.active ? 'active': 'inactive'}`}>
+          className="question">
           <img className={`${this.props.question.double ? 'double' : 'normal'} ${this.state.double ? 'hidden' : 'visible'}`} src={dailyDoublePicture} alt="Daily Double" />
           <div className={`wrapper amount ${this.state.complete ? 'complete': 'incomplete'} `}>
             <div className="center">
