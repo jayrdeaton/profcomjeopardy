@@ -1,0 +1,133 @@
+.app {
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: black;
+  text-align: center;
+  overflow: hidden;
+}
+.category {
+  position: absolute;
+  width: 20%;
+  height: 100%;
+}
+.header {
+  height: 17%;
+  border: 5px solid black;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background: #060CE9;
+  color: white;
+}
+.question {
+  position: absolute;
+  background: #060CE9;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+  color: white;
+  backface-visibility: hidden;
+  z-index: 2;
+}
+.tile .wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: all .3s ease .3s;
+}
+.question .wrapper.amount {
+  font-size: 10vh;
+  color: #FFE100;
+}
+.inactive .question .wrapper.amount.incomplete {
+  opacity: 1;
+}
+.inactive .question.inactive .wrapper.amount.complete {
+  opacity: 0;
+}
+.active .question .wrapper.amount {
+  opacity: 0;
+}
+.inactive .question .wrapper.q {
+  opacity: 0;
+}
+.active .question .wrapper.q {
+  opacity: 1;
+}
+.answer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #060CE9;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  backface-visibility: hidden;
+  z-index: 1;
+  transform: rotateY(180deg);
+}
+.inactive .answer {
+  z-index: 1;
+}
+.active .answer {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+.tile {
+  transform-style: preserve-3d;
+  position: absolute;
+  height: 17%;
+  width: 20%;
+  border: 5px solid black;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  /*z-index: 2;*/
+}
+.tile.inactive {
+  z-index: 1;
+  transition: transform .8s ease, height .3s ease, width .3s ease, top .3s ease, left .3s ease, z-index 0s ease .3s;
+}
+.tile.active {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  transition: transform .8s ease, height .3s ease, width .3s ease, top .3s ease, left .3s ease, z-index 0s ease 0s;
+}
+.tile.flipped {
+  transform: rotateY(180deg);
+}
+.tile.unflipped {
+  transform: rotateY(0deg);
+}
+.center {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+}
+.inactive .answer .wrapper {
+  opacity: 0;
+}
+img {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  border-radius: 10px;
+  opacity: 0;
+  transition: all .3s ease;
+}
+.active img.double.visible {
+  opacity: 1;
+}
+.tile_wrapper {
+  position: absolute;
+  perspective: 1000px;
+}
