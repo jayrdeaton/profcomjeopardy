@@ -5,7 +5,7 @@ import dailyDoubleSound from './dailydouble.mp3';
 class Question extends Component {
   constructor(props) {
     super(props);
-    let top = 17 * props.question.index + 'vh';
+    let top = 17 * props.question.index + 15 + 'vh';
     let left = 20 * props.question.category + 'vw';
     this.resetActiveState = this.resetActiveState.bind(this);
     this.state = {active: false, top, left, answer: false, complete: false, double: false, sound: false};
@@ -30,7 +30,7 @@ class Question extends Component {
     };
   };
   resetActiveState() {
-    let top = 17 * this.props.question.index + 'vh';
+    let top = 17 * this.props.question.index + 15 + 'vh';
     let left = 20 * this.props.question.category + 'vw';
     this.setState({active: false, top, left});
   };
