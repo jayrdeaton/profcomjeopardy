@@ -46,15 +46,15 @@
   font-size: 5vw;
   color: #FFE100;
 }
-.inactive .question .wrapper.amount.incomplete {
+.inactive.incomplete .question .wrapper.amount {
   opacity: 1;
   transition: opacity .3s ease .3s;
 }
-.inactive .question .wrapper.amount.complete {
+.inactive.complete .question .wrapper.amount {
   opacity: 0;
   /*transition: opacity .3s ease;*/
 }
-.inactive .question .wrapper.amount.complete {
+.inactive.complete .question .wrapper.amount {
   opacity: 0;
   /*transition: opacity .3s ease;*/
 }
@@ -73,6 +73,10 @@
   /*transition: opacity .3s ease .3s;*/
 }
 .inactive .answer .wrapper {
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.complete .answer .wrapper {
   opacity: 0;
   transition: opacity .3s ease;
 }

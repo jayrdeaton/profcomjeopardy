@@ -7,14 +7,15 @@ class Question extends Component {
     super(props);
     let top = 17 * props.question.index + 'vh';
     let left = 20 * props.question.category + 'vw';
-    this.state = {active: false, top, left, answer: false, complete: false, double: false, sound: false}
+    this.resetActiveState = this.resetActiveState.bind(this);
+    this.state = {active: false, top, left, answer: false, complete: false, double: false, sound: false};
   };
   handleClick() {
     if (!this.state.complete) {
       if (this.state.active && this.state.answer) {
-        let top = 17 * this.props.question.index + 'vh';
-        let left = 20 * this.props.question.category + 'vw';
-        this.setState({active: false, top, left, answer: true, complete: true});
+        this.setState({active: true, answer: true, complete: true});
+        setTimeout(this.resetActiveState, 300);
+        // this.setState({active: false, top, left, answer: true, complete: true});
       } else if (this.state.active && this.props.question.double && !this.state.double) {
         this.setState({double: true});
       } else if (this.state.active) {
@@ -28,16 +29,21 @@ class Question extends Component {
       };
     };
   };
+  resetActiveState() {
+    let top = 17 * this.props.question.index + 'vh';
+    let left = 20 * this.props.question.category + 'vw';
+    this.setState({active: false, top, left});
+  };
   render() {
     return (
       <div
-        className={`tile ${this.state.answer ? 'flipped': 'unflipped'} ${this.state.active ? 'active': 'inactive'}`}
+        className={`tile ${this.state.answer ? 'flipped': 'unflipped'} ${this.state.active ? 'active': 'inactive'} ${this.state.complete ? 'complete': 'incomplete'}`}
         onClick={event => this.handleClick()}
         style={{top: this.state.top, left: this.state.left}}>
         <div
           className="question">
           <img className={`${this.props.question.double ? 'double' : 'normal'} ${this.state.double ? 'hidden' : 'visible'}`} src={dailyDoublePicture} alt="Daily Double" />
-          <div className={`wrapper amount ${this.state.complete ? 'complete': 'incomplete'} `}>
+          <div className="wrapper amount">
             <div className="center">
               {this.props.question.value}
             </div>
